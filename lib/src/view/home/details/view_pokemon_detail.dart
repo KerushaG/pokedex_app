@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:linear_progress_bar/linear_progress_bar.dart';
 import 'package:pokedex_app/src/model/clients/pokemon_api_client.dart';
+import 'package:pokedex_app/src/view/home/details/widgets/base_stats.dart';
+import 'package:pokedex_app/src/view/home/details/widgets/cover_image.dart';
+import 'package:pokedex_app/src/view/home/details/widgets/description.dart';
+import 'package:pokedex_app/src/view/home/details/widgets/pokemon_types.dart';
+import 'package:pokedex_app/src/view/home/details/widgets/section_header.dart';
 
 class ViewPokemonDetail extends StatefulWidget {
   const ViewPokemonDetail({
@@ -25,7 +28,6 @@ class _ViewPokemonDetailState extends State<ViewPokemonDetail> {
   void initState() {
     super.initState();
     controllerSearch = TextEditingController();
-    //getUrl();
     _pokemonDetails = api.fetchPokemonDetailObject(widget.selectedPokemonUrl);
   }
 
@@ -69,159 +71,16 @@ class _ViewPokemonDetailState extends State<ViewPokemonDetail> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Wrap(
-                    spacing: 8.0,
-                    alignment: WrapAlignment.center,
-                    children:
-                        pokemons.type.map((type) {
-                          return Chip(
-                            label: Text(type ?? 'kerusha'),
-                            backgroundColor: const Color.fromARGB(
-                              255,
-                              242,
-                              109,
-                              32,
-                            ),
-                            side: BorderSide.none,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          );
-                        }).toList(),
-                  ),
+                  PokemonTypes(types: pokemons.type),
                   const SizedBox(height: 16),
                   pokemons.imageUrl != null
-                      ? SvgPicture.network(
-                        pokemons.imageUrl!,
-                        width: 200,
-                        height: 200,
-                        fit: BoxFit.contain,
-                        placeholderBuilder:
-                            (_) => const SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: CircularProgressIndicator(),
-                            ),
-                      )
+                      ? CoverImage(imageUrl: pokemons.imageUrl!)
                       : const SizedBox(width: 100, height: 100),
-
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        left: BorderSide(
-                          color: const Color.fromARGB(255, 242, 109, 32),
-                          width: 4.0,
-                        ),
-                      ),
-                      //border: Border.all(color: Colors.blue, width: 2.0),
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    child: Text(
-                      "Bio",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListTile(
-                        tileColor: const Color(0xFFFBE4C0),
-
-                        title: Text(
-                          pokemons.description.trim(),
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  SectionHeader(title: "Bio"),
+                  PokemonDescription(description: pokemons.description.trim()),
                   const SizedBox(height: 16),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        left: BorderSide(
-                          color: const Color.fromARGB(255, 242, 109, 32),
-                          width: 4.0,
-                        ),
-                      ),
-                      //border: Border.all(color: Colors.blue, width: 2.0),
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    child: Text(
-                      "Base Stats",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Card(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          for (final stat in pokemons.stats)
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 6.0,
-                              ),
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    width: 80,
-                                    child: Text(
-                                      stat.statDesc,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: TitledProgressBar(
-                                      maxSteps: 250,
-                                      currentStep: stat.statistic,
-                                      progressColor: const Color.fromARGB(
-                                        255,
-                                        242,
-                                        109,
-                                        32,
-                                      ),
-                                      backgroundColor: Colors.grey.shade300,
-                                      minHeight: 15,
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  SizedBox(
-                                    width: 32,
-                                    child: Text(
-                                      stat.statistic.toString(),
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  SectionHeader(title: "Base Stats"),
+                  BaseStats(pokemonStats: pokemons.stats),
                   const SizedBox(height: 24),
                 ],
               ),
@@ -229,18 +88,6 @@ class _ViewPokemonDetailState extends State<ViewPokemonDetail> {
           },
         ),
       ),
-      // body: ListTile(
-      //   leading:
-      //       imageUrl != null
-      //           ? Image.network(
-      //             imageUrl!,
-      //             // width: 100,
-      //             // height: 100,
-      //             fit: BoxFit.contain,
-      //             errorBuilder: (_, __, ___) => const Icon(Icons.broken_image),
-      //           )
-      //           : const SizedBox(width: 100, height: 100),
-      // ),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_app/firebase_options.dart';
 import 'package:pokedex_app/injection.dart';
-import 'package:pokedex_app/src/view/home/list/view_all_pokemon.dart';
+import 'package:pokedex_app/src/view/home/home_page.dart';
 import 'package:pokedex_app/src/view/login/login_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex_app/src/view_model/bloc/authentication/auth_bloc.dart';
@@ -31,7 +31,7 @@ class App extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         debugShowCheckedModeBanner: false,
-        home: const AppAuthManager(),
+        home: const HomePage(),
       ),
     );
   }
@@ -55,7 +55,7 @@ class AppAuthManager extends StatelessWidget {
               previous.authenticatedUser != current.authenticatedUser,
       builder: (context, state) {
         if (state.authenticatedUser != null) {
-          return const PokemonListPage();
+          return const HomePage();
         }
         return const LoginPage();
       },

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:pokedex_app/src/model/clients/dio_client.dart';
 
 class PokemonService {
@@ -7,30 +8,32 @@ class PokemonService {
     int limit = 20,
     int offset = 0,
   }) async {
-    final response = await _dio.get(
-      '/pokemon',
-      queryParameters: {'limit': limit, 'offset': offset},
-    );
-    final List results =
-        response
-            .data['results']; //return AllPokemon.fromJson(response.data as Map<String, dynamic>);
-
-    final List<HomePokemonListItem> pokemonList = [];
-    for (final item in results) {
-      final String name = item['name'];
-      final String url = item['url'];
-
-      final detailResponse = await _dio.get(url);
-      final imageUrl =
-          detailResponse
-                  .data['sprites']['other']['official-artwork']['front_shiny']
-              as String?;
-      pokemonList.add(
-        HomePokemonListItem(pokemonUrl: url, name: name, imageUrl: imageUrl),
+    try {
+      final response = await _dio.get(
+        '/pokemon',
+        queryParameters: {'limit': limit, 'offset': offset},
       );
-    }
+      final List results = response.data['results'] as List;
 
-    return pokemonList;
+      final List<HomePokemonListItem> pokemonList = [];
+      for (final item in results) {
+        final String name = item['name'] as String;
+        final String url = item['url'] as String;
+
+        final detailResponse = await _dio.get(url);
+        final imageUrl =
+            detailResponse
+                    .data['sprites']['other']['official-artwork']['front_shiny']
+                as String?;
+        pokemonList.add(
+          HomePokemonListItem(pokemonUrl: url, name: name, imageUrl: imageUrl),
+        );
+      }
+
+      return pokemonList;
+    } on DioException catch (e) {
+      throw _handleDioException(e);
+    }
   }
 
   Future<PokemonDetail> fetchPokemonDetailObject(String url) async {
@@ -79,8 +82,28 @@ class PokemonService {
         imageUrl: imageUrl,
         description: description,
       );
-    } catch (e) {
-      throw Exception('Failed to fetch pokemon detail: $e');
+    } on DioException catch (e) {
+      throw _handleDioException(e);
+    }
+  }
+
+  /// Handles [DioException] and returns a descriptive [Exception].
+  static Exception _handleDioException(DioException e) {
+    switch (e.type) {
+      case DioExceptionType.connectionTimeout:
+      case DioExceptionType.sendTimeout:
+      case DioExceptionType.receiveTimeout:
+        return Exception('Request timed out: ${e.message}');
+      case DioExceptionType.connectionError:
+        return Exception('No connection: ${e.message}');
+      case DioExceptionType.badResponse:
+        final statusCode = e.response?.statusCode;
+        final message = e.response?.data?.toString() ?? e.message;
+        return Exception('Request failed ($statusCode): $message');
+      case DioExceptionType.cancel:
+        return Exception('Request cancelled');
+      default:
+        return Exception('Network error: ${e.message}');
     }
   }
 }
