@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     context.read<PokemonBloc>().add(const PokemonEvent.getAllPokemon());
+    context.read<PokemonBloc>().add(const PokemonEvent.fetchFavoritePokemons());
   }
 
   @override
@@ -32,28 +33,30 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F6F6),
       appBar: PageHeader(username: username),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SearchInputField(),
-            FilterButtons(),
-            const SizedBox(height: 9),
-            Expanded(
-              child: BlocBuilder<PokemonBloc, PokemonState>(
-                builder: (context, state) {
-                  if (state.isLoading) {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                  if (state.failure != null) {
-                    return Center(child: Text(state.failure.toString()));
-                  }
-                  if (state.pokemonList == null) {
-                    return const SizedBox.shrink();
-                  }
-
-                  return ListView.builder(
+      body: BlocBuilder<PokemonBloc, PokemonState>(
+        builder: (context, state) {
+          if (state.isLoading) {
+            return Center(child: CircularProgressIndicator());
+          }
+          if (state.failure != null) {
+            return Center(child: Text(state.failure.toString()));
+          }
+          if (state.pokemonList == null) {
+            return const SizedBox.shrink();
+          }
+          return Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SearchInputField(
+                  pokemonNames:
+                      state.pokemonList?.map((e) => e.name).toList() ?? [],
+                ),
+                FilterButtons(),
+                const SizedBox(height: 9),
+                Expanded(
+                  child: ListView.builder(
                     itemCount: state.pokemonList!.length,
                     itemBuilder: (context, index) {
                       final result = state.pokemonList![index];
@@ -61,15 +64,16 @@ class _HomePageState extends State<HomePage> {
                         pokemonName: result.name,
                         pokemonUrl: result.pokemonUrl,
                         imageUrl: result.imageUrl,
+                        isFavorite: result.isFavourite,
                       );
                     },
-                  );
-                },
-              ),
+                  ),
+                ),
+                LogoutButton(),
+              ],
             ),
-            LogoutButton(),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

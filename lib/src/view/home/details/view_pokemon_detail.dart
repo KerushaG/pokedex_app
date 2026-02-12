@@ -8,8 +8,13 @@ import 'package:pokedex_app/src/view/home/details/widgets/section_header.dart';
 import 'package:pokedex_app/src/view_model/bloc/pokemons/pokemon_bloc.dart';
 
 class ViewPokemonDetail extends StatefulWidget {
-  const ViewPokemonDetail({super.key, required this.name});
+  const ViewPokemonDetail({
+    super.key,
+    required this.name,
+    required this.isFavourite,
+  });
   final String name;
+  final bool isFavourite;
 
   @override
   State<ViewPokemonDetail> createState() => _ViewPokemonDetailState();
@@ -20,6 +25,7 @@ class _ViewPokemonDetailState extends State<ViewPokemonDetail> {
 
   String? imageUrl;
   String? selectedFilter;
+
   @override
   void initState() {
     super.initState();
@@ -43,13 +49,33 @@ class _ViewPokemonDetailState extends State<ViewPokemonDetail> {
           backgroundColor: const Color(0xFFF8F6F6),
           appBar: AppBar(
             actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 12),
-                child: const Icon(
-                  Icons.favorite,
-                  color: Color(0xFFCDD5E0),
-                  size: 36,
-                ),
+              BlocSelector<PokemonBloc, PokemonState, bool>(
+                selector: (state) {
+                  return state.favoritePokemons?.contains(widget.name) ?? false;
+                },
+                builder: (context, isFavorite) {
+                  return GestureDetector(
+                    onTap: () {
+                      context.read<PokemonBloc>().add(
+                        isFavorite
+                            ? PokemonEvent.removeFavoritePokemon(
+                              name: widget.name,
+                            )
+                            : PokemonEvent.addFavoritePokemon(
+                              name: widget.name,
+                            ),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Icon(
+                        Icons.favorite,
+                        color: isFavorite ? Colors.red : Color(0xFFCDD5E0),
+                        size: 36,
+                      ),
+                    ),
+                  );
+                },
               ),
             ],
             title: Text(

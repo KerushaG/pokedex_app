@@ -8,6 +8,9 @@ class PokemonEvent with _$PokemonEvent {
   const factory PokemonEvent.clearFilter() = ClearFilter;
 
   const factory PokemonEvent.filterFavoritePokemons() = FilterFavoritePokemons;
-  const factory PokemonEvent.filterPokemonName({required String name}) =
-      FilterPokemonName;
+  const factory PokemonEvent.fetchFavoritePokemons() = FetchFavoritePokemons;
+  const factory PokemonEvent.addFavoritePokemon({required String name}) =
+      AddFavoritePokemon;
+  const factory PokemonEvent.removeFavoritePokemon({required String name}) =
+      RemoveFavoritePokemon;
 }

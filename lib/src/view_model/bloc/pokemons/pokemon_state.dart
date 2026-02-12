@@ -6,6 +6,7 @@ class PokemonState with _$PokemonState {
     required CoreFailure? failure,
     required List<PokemonListItemModel>? pokemonList,
     required PokemonDetailModel? selectedPokemon,
+    required List<String>? favoritePokemons,
     @Default(false) bool isLoading,
   }) = _PokemonState;
   factory PokemonState.initial() => PokemonState(
@@ -13,5 +14,6 @@ class PokemonState with _$PokemonState {
     pokemonList: null,
     selectedPokemon: null,
     isLoading: false,
+    favoritePokemons: null,
   );
 }

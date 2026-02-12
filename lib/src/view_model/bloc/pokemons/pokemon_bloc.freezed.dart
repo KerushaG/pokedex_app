@@ -23,7 +23,9 @@ mixin _$PokemonEvent {
     required TResult Function(String detailUrl) getSelectedPokemon,
     required TResult Function() clearFilter,
     required TResult Function() filterFavoritePokemons,
-    required TResult Function(String name) filterPokemonName,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -31,7 +33,9 @@ mixin _$PokemonEvent {
     TResult? Function(String detailUrl)? getSelectedPokemon,
     TResult? Function()? clearFilter,
     TResult? Function()? filterFavoritePokemons,
-    TResult? Function(String name)? filterPokemonName,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -39,7 +43,9 @@ mixin _$PokemonEvent {
     TResult Function(String detailUrl)? getSelectedPokemon,
     TResult Function()? clearFilter,
     TResult Function()? filterFavoritePokemons,
-    TResult Function(String name)? filterPokemonName,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -49,7 +55,11 @@ mixin _$PokemonEvent {
     required TResult Function(ClearFilter value) clearFilter,
     required TResult Function(FilterFavoritePokemons value)
     filterFavoritePokemons,
-    required TResult Function(FilterPokemonName value) filterPokemonName,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -57,7 +67,9 @@ mixin _$PokemonEvent {
     TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult? Function(ClearFilter value)? clearFilter,
     TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult? Function(FilterPokemonName value)? filterPokemonName,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -65,7 +77,9 @@ mixin _$PokemonEvent {
     TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult Function(ClearFilter value)? clearFilter,
     TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult Function(FilterPokemonName value)? filterPokemonName,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -139,7 +153,9 @@ class _$GetAllPokemonImpl implements GetAllPokemon {
     required TResult Function(String detailUrl) getSelectedPokemon,
     required TResult Function() clearFilter,
     required TResult Function() filterFavoritePokemons,
-    required TResult Function(String name) filterPokemonName,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
   }) {
     return getAllPokemon();
   }
@@ -151,7 +167,9 @@ class _$GetAllPokemonImpl implements GetAllPokemon {
     TResult? Function(String detailUrl)? getSelectedPokemon,
     TResult? Function()? clearFilter,
     TResult? Function()? filterFavoritePokemons,
-    TResult? Function(String name)? filterPokemonName,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
   }) {
     return getAllPokemon?.call();
   }
@@ -163,7 +181,9 @@ class _$GetAllPokemonImpl implements GetAllPokemon {
     TResult Function(String detailUrl)? getSelectedPokemon,
     TResult Function()? clearFilter,
     TResult Function()? filterFavoritePokemons,
-    TResult Function(String name)? filterPokemonName,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (getAllPokemon != null) {
@@ -180,7 +200,11 @@ class _$GetAllPokemonImpl implements GetAllPokemon {
     required TResult Function(ClearFilter value) clearFilter,
     required TResult Function(FilterFavoritePokemons value)
     filterFavoritePokemons,
-    required TResult Function(FilterPokemonName value) filterPokemonName,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
   }) {
     return getAllPokemon(this);
   }
@@ -192,7 +216,9 @@ class _$GetAllPokemonImpl implements GetAllPokemon {
     TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult? Function(ClearFilter value)? clearFilter,
     TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult? Function(FilterPokemonName value)? filterPokemonName,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
   }) {
     return getAllPokemon?.call(this);
   }
@@ -204,7 +230,9 @@ class _$GetAllPokemonImpl implements GetAllPokemon {
     TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult Function(ClearFilter value)? clearFilter,
     TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult Function(FilterPokemonName value)? filterPokemonName,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (getAllPokemon != null) {
@@ -296,7 +324,9 @@ class _$GetSelectedPokemonImpl implements GetSelectedPokemon {
     required TResult Function(String detailUrl) getSelectedPokemon,
     required TResult Function() clearFilter,
     required TResult Function() filterFavoritePokemons,
-    required TResult Function(String name) filterPokemonName,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
   }) {
     return getSelectedPokemon(detailUrl);
   }
@@ -308,7 +338,9 @@ class _$GetSelectedPokemonImpl implements GetSelectedPokemon {
     TResult? Function(String detailUrl)? getSelectedPokemon,
     TResult? Function()? clearFilter,
     TResult? Function()? filterFavoritePokemons,
-    TResult? Function(String name)? filterPokemonName,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
   }) {
     return getSelectedPokemon?.call(detailUrl);
   }
@@ -320,7 +352,9 @@ class _$GetSelectedPokemonImpl implements GetSelectedPokemon {
     TResult Function(String detailUrl)? getSelectedPokemon,
     TResult Function()? clearFilter,
     TResult Function()? filterFavoritePokemons,
-    TResult Function(String name)? filterPokemonName,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (getSelectedPokemon != null) {
@@ -337,7 +371,11 @@ class _$GetSelectedPokemonImpl implements GetSelectedPokemon {
     required TResult Function(ClearFilter value) clearFilter,
     required TResult Function(FilterFavoritePokemons value)
     filterFavoritePokemons,
-    required TResult Function(FilterPokemonName value) filterPokemonName,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
   }) {
     return getSelectedPokemon(this);
   }
@@ -349,7 +387,9 @@ class _$GetSelectedPokemonImpl implements GetSelectedPokemon {
     TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult? Function(ClearFilter value)? clearFilter,
     TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult? Function(FilterPokemonName value)? filterPokemonName,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
   }) {
     return getSelectedPokemon?.call(this);
   }
@@ -361,7 +401,9 @@ class _$GetSelectedPokemonImpl implements GetSelectedPokemon {
     TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult Function(ClearFilter value)? clearFilter,
     TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult Function(FilterPokemonName value)? filterPokemonName,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (getSelectedPokemon != null) {
@@ -431,7 +473,9 @@ class _$ClearFilterImpl implements ClearFilter {
     required TResult Function(String detailUrl) getSelectedPokemon,
     required TResult Function() clearFilter,
     required TResult Function() filterFavoritePokemons,
-    required TResult Function(String name) filterPokemonName,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
   }) {
     return clearFilter();
   }
@@ -443,7 +487,9 @@ class _$ClearFilterImpl implements ClearFilter {
     TResult? Function(String detailUrl)? getSelectedPokemon,
     TResult? Function()? clearFilter,
     TResult? Function()? filterFavoritePokemons,
-    TResult? Function(String name)? filterPokemonName,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
   }) {
     return clearFilter?.call();
   }
@@ -455,7 +501,9 @@ class _$ClearFilterImpl implements ClearFilter {
     TResult Function(String detailUrl)? getSelectedPokemon,
     TResult Function()? clearFilter,
     TResult Function()? filterFavoritePokemons,
-    TResult Function(String name)? filterPokemonName,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (clearFilter != null) {
@@ -472,7 +520,11 @@ class _$ClearFilterImpl implements ClearFilter {
     required TResult Function(ClearFilter value) clearFilter,
     required TResult Function(FilterFavoritePokemons value)
     filterFavoritePokemons,
-    required TResult Function(FilterPokemonName value) filterPokemonName,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
   }) {
     return clearFilter(this);
   }
@@ -484,7 +536,9 @@ class _$ClearFilterImpl implements ClearFilter {
     TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult? Function(ClearFilter value)? clearFilter,
     TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult? Function(FilterPokemonName value)? filterPokemonName,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
   }) {
     return clearFilter?.call(this);
   }
@@ -496,7 +550,9 @@ class _$ClearFilterImpl implements ClearFilter {
     TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult Function(ClearFilter value)? clearFilter,
     TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult Function(FilterPokemonName value)? filterPokemonName,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (clearFilter != null) {
@@ -558,7 +614,9 @@ class _$FilterFavoritePokemonsImpl implements FilterFavoritePokemons {
     required TResult Function(String detailUrl) getSelectedPokemon,
     required TResult Function() clearFilter,
     required TResult Function() filterFavoritePokemons,
-    required TResult Function(String name) filterPokemonName,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
   }) {
     return filterFavoritePokemons();
   }
@@ -570,7 +628,9 @@ class _$FilterFavoritePokemonsImpl implements FilterFavoritePokemons {
     TResult? Function(String detailUrl)? getSelectedPokemon,
     TResult? Function()? clearFilter,
     TResult? Function()? filterFavoritePokemons,
-    TResult? Function(String name)? filterPokemonName,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
   }) {
     return filterFavoritePokemons?.call();
   }
@@ -582,7 +642,9 @@ class _$FilterFavoritePokemonsImpl implements FilterFavoritePokemons {
     TResult Function(String detailUrl)? getSelectedPokemon,
     TResult Function()? clearFilter,
     TResult Function()? filterFavoritePokemons,
-    TResult Function(String name)? filterPokemonName,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (filterFavoritePokemons != null) {
@@ -599,7 +661,11 @@ class _$FilterFavoritePokemonsImpl implements FilterFavoritePokemons {
     required TResult Function(ClearFilter value) clearFilter,
     required TResult Function(FilterFavoritePokemons value)
     filterFavoritePokemons,
-    required TResult Function(FilterPokemonName value) filterPokemonName,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
   }) {
     return filterFavoritePokemons(this);
   }
@@ -611,7 +677,9 @@ class _$FilterFavoritePokemonsImpl implements FilterFavoritePokemons {
     TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult? Function(ClearFilter value)? clearFilter,
     TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult? Function(FilterPokemonName value)? filterPokemonName,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
   }) {
     return filterFavoritePokemons?.call(this);
   }
@@ -623,7 +691,9 @@ class _$FilterFavoritePokemonsImpl implements FilterFavoritePokemons {
     TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult Function(ClearFilter value)? clearFilter,
     TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult Function(FilterPokemonName value)? filterPokemonName,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
     if (filterFavoritePokemons != null) {
@@ -638,75 +708,45 @@ abstract class FilterFavoritePokemons implements PokemonEvent {
 }
 
 /// @nodoc
-abstract class _$$FilterPokemonNameImplCopyWith<$Res> {
-  factory _$$FilterPokemonNameImplCopyWith(
-    _$FilterPokemonNameImpl value,
-    $Res Function(_$FilterPokemonNameImpl) then,
-  ) = __$$FilterPokemonNameImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String name});
+abstract class _$$FetchFavoritePokemonsImplCopyWith<$Res> {
+  factory _$$FetchFavoritePokemonsImplCopyWith(
+    _$FetchFavoritePokemonsImpl value,
+    $Res Function(_$FetchFavoritePokemonsImpl) then,
+  ) = __$$FetchFavoritePokemonsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FilterPokemonNameImplCopyWithImpl<$Res>
-    extends _$PokemonEventCopyWithImpl<$Res, _$FilterPokemonNameImpl>
-    implements _$$FilterPokemonNameImplCopyWith<$Res> {
-  __$$FilterPokemonNameImplCopyWithImpl(
-    _$FilterPokemonNameImpl _value,
-    $Res Function(_$FilterPokemonNameImpl) _then,
+class __$$FetchFavoritePokemonsImplCopyWithImpl<$Res>
+    extends _$PokemonEventCopyWithImpl<$Res, _$FetchFavoritePokemonsImpl>
+    implements _$$FetchFavoritePokemonsImplCopyWith<$Res> {
+  __$$FetchFavoritePokemonsImplCopyWithImpl(
+    _$FetchFavoritePokemonsImpl _value,
+    $Res Function(_$FetchFavoritePokemonsImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of PokemonEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? name = null}) {
-    return _then(
-      _$FilterPokemonNameImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
-class _$FilterPokemonNameImpl implements FilterPokemonName {
-  const _$FilterPokemonNameImpl({required this.name});
-
-  @override
-  final String name;
+class _$FetchFavoritePokemonsImpl implements FetchFavoritePokemons {
+  const _$FetchFavoritePokemonsImpl();
 
   @override
   String toString() {
-    return 'PokemonEvent.filterPokemonName(name: $name)';
+    return 'PokemonEvent.fetchFavoritePokemons()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FilterPokemonNameImpl &&
-            (identical(other.name, name) || other.name == name));
+            other is _$FetchFavoritePokemonsImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name);
-
-  /// Create a copy of PokemonEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FilterPokemonNameImplCopyWith<_$FilterPokemonNameImpl> get copyWith =>
-      __$$FilterPokemonNameImplCopyWithImpl<_$FilterPokemonNameImpl>(
-        this,
-        _$identity,
-      );
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -715,9 +755,11 @@ class _$FilterPokemonNameImpl implements FilterPokemonName {
     required TResult Function(String detailUrl) getSelectedPokemon,
     required TResult Function() clearFilter,
     required TResult Function() filterFavoritePokemons,
-    required TResult Function(String name) filterPokemonName,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
   }) {
-    return filterPokemonName(name);
+    return fetchFavoritePokemons();
   }
 
   @override
@@ -727,9 +769,11 @@ class _$FilterPokemonNameImpl implements FilterPokemonName {
     TResult? Function(String detailUrl)? getSelectedPokemon,
     TResult? Function()? clearFilter,
     TResult? Function()? filterFavoritePokemons,
-    TResult? Function(String name)? filterPokemonName,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
   }) {
-    return filterPokemonName?.call(name);
+    return fetchFavoritePokemons?.call();
   }
 
   @override
@@ -739,11 +783,13 @@ class _$FilterPokemonNameImpl implements FilterPokemonName {
     TResult Function(String detailUrl)? getSelectedPokemon,
     TResult Function()? clearFilter,
     TResult Function()? filterFavoritePokemons,
-    TResult Function(String name)? filterPokemonName,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
-    if (filterPokemonName != null) {
-      return filterPokemonName(name);
+    if (fetchFavoritePokemons != null) {
+      return fetchFavoritePokemons();
     }
     return orElse();
   }
@@ -756,9 +802,13 @@ class _$FilterPokemonNameImpl implements FilterPokemonName {
     required TResult Function(ClearFilter value) clearFilter,
     required TResult Function(FilterFavoritePokemons value)
     filterFavoritePokemons,
-    required TResult Function(FilterPokemonName value) filterPokemonName,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
   }) {
-    return filterPokemonName(this);
+    return fetchFavoritePokemons(this);
   }
 
   @override
@@ -768,9 +818,11 @@ class _$FilterPokemonNameImpl implements FilterPokemonName {
     TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult? Function(ClearFilter value)? clearFilter,
     TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult? Function(FilterPokemonName value)? filterPokemonName,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
   }) {
-    return filterPokemonName?.call(this);
+    return fetchFavoritePokemons?.call(this);
   }
 
   @override
@@ -780,27 +832,381 @@ class _$FilterPokemonNameImpl implements FilterPokemonName {
     TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
     TResult Function(ClearFilter value)? clearFilter,
     TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
-    TResult Function(FilterPokemonName value)? filterPokemonName,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
     required TResult orElse(),
   }) {
-    if (filterPokemonName != null) {
-      return filterPokemonName(this);
+    if (fetchFavoritePokemons != null) {
+      return fetchFavoritePokemons(this);
     }
     return orElse();
   }
 }
 
-abstract class FilterPokemonName implements PokemonEvent {
-  const factory FilterPokemonName({required final String name}) =
-      _$FilterPokemonNameImpl;
+abstract class FetchFavoritePokemons implements PokemonEvent {
+  const factory FetchFavoritePokemons() = _$FetchFavoritePokemonsImpl;
+}
+
+/// @nodoc
+abstract class _$$AddFavoritePokemonImplCopyWith<$Res> {
+  factory _$$AddFavoritePokemonImplCopyWith(
+    _$AddFavoritePokemonImpl value,
+    $Res Function(_$AddFavoritePokemonImpl) then,
+  ) = __$$AddFavoritePokemonImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$$AddFavoritePokemonImplCopyWithImpl<$Res>
+    extends _$PokemonEventCopyWithImpl<$Res, _$AddFavoritePokemonImpl>
+    implements _$$AddFavoritePokemonImplCopyWith<$Res> {
+  __$$AddFavoritePokemonImplCopyWithImpl(
+    _$AddFavoritePokemonImpl _value,
+    $Res Function(_$AddFavoritePokemonImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? name = null}) {
+    return _then(
+      _$AddFavoritePokemonImpl(
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$AddFavoritePokemonImpl implements AddFavoritePokemon {
+  const _$AddFavoritePokemonImpl({required this.name});
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'PokemonEvent.addFavoritePokemon(name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddFavoritePokemonImpl &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name);
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddFavoritePokemonImplCopyWith<_$AddFavoritePokemonImpl> get copyWith =>
+      __$$AddFavoritePokemonImplCopyWithImpl<_$AddFavoritePokemonImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllPokemon,
+    required TResult Function(String detailUrl) getSelectedPokemon,
+    required TResult Function() clearFilter,
+    required TResult Function() filterFavoritePokemons,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
+  }) {
+    return addFavoritePokemon(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllPokemon,
+    TResult? Function(String detailUrl)? getSelectedPokemon,
+    TResult? Function()? clearFilter,
+    TResult? Function()? filterFavoritePokemons,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
+  }) {
+    return addFavoritePokemon?.call(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllPokemon,
+    TResult Function(String detailUrl)? getSelectedPokemon,
+    TResult Function()? clearFilter,
+    TResult Function()? filterFavoritePokemons,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
+    required TResult orElse(),
+  }) {
+    if (addFavoritePokemon != null) {
+      return addFavoritePokemon(name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAllPokemon value) getAllPokemon,
+    required TResult Function(GetSelectedPokemon value) getSelectedPokemon,
+    required TResult Function(ClearFilter value) clearFilter,
+    required TResult Function(FilterFavoritePokemons value)
+    filterFavoritePokemons,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
+  }) {
+    return addFavoritePokemon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetAllPokemon value)? getAllPokemon,
+    TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
+    TResult? Function(ClearFilter value)? clearFilter,
+    TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
+  }) {
+    return addFavoritePokemon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAllPokemon value)? getAllPokemon,
+    TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
+    TResult Function(ClearFilter value)? clearFilter,
+    TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
+    required TResult orElse(),
+  }) {
+    if (addFavoritePokemon != null) {
+      return addFavoritePokemon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddFavoritePokemon implements PokemonEvent {
+  const factory AddFavoritePokemon({required final String name}) =
+      _$AddFavoritePokemonImpl;
 
   String get name;
 
   /// Create a copy of PokemonEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FilterPokemonNameImplCopyWith<_$FilterPokemonNameImpl> get copyWith =>
+  _$$AddFavoritePokemonImplCopyWith<_$AddFavoritePokemonImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveFavoritePokemonImplCopyWith<$Res> {
+  factory _$$RemoveFavoritePokemonImplCopyWith(
+    _$RemoveFavoritePokemonImpl value,
+    $Res Function(_$RemoveFavoritePokemonImpl) then,
+  ) = __$$RemoveFavoritePokemonImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$$RemoveFavoritePokemonImplCopyWithImpl<$Res>
+    extends _$PokemonEventCopyWithImpl<$Res, _$RemoveFavoritePokemonImpl>
+    implements _$$RemoveFavoritePokemonImplCopyWith<$Res> {
+  __$$RemoveFavoritePokemonImplCopyWithImpl(
+    _$RemoveFavoritePokemonImpl _value,
+    $Res Function(_$RemoveFavoritePokemonImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? name = null}) {
+    return _then(
+      _$RemoveFavoritePokemonImpl(
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$RemoveFavoritePokemonImpl implements RemoveFavoritePokemon {
+  const _$RemoveFavoritePokemonImpl({required this.name});
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'PokemonEvent.removeFavoritePokemon(name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveFavoritePokemonImpl &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name);
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveFavoritePokemonImplCopyWith<_$RemoveFavoritePokemonImpl>
+  get copyWith =>
+      __$$RemoveFavoritePokemonImplCopyWithImpl<_$RemoveFavoritePokemonImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllPokemon,
+    required TResult Function(String detailUrl) getSelectedPokemon,
+    required TResult Function() clearFilter,
+    required TResult Function() filterFavoritePokemons,
+    required TResult Function() fetchFavoritePokemons,
+    required TResult Function(String name) addFavoritePokemon,
+    required TResult Function(String name) removeFavoritePokemon,
+  }) {
+    return removeFavoritePokemon(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllPokemon,
+    TResult? Function(String detailUrl)? getSelectedPokemon,
+    TResult? Function()? clearFilter,
+    TResult? Function()? filterFavoritePokemons,
+    TResult? Function()? fetchFavoritePokemons,
+    TResult? Function(String name)? addFavoritePokemon,
+    TResult? Function(String name)? removeFavoritePokemon,
+  }) {
+    return removeFavoritePokemon?.call(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllPokemon,
+    TResult Function(String detailUrl)? getSelectedPokemon,
+    TResult Function()? clearFilter,
+    TResult Function()? filterFavoritePokemons,
+    TResult Function()? fetchFavoritePokemons,
+    TResult Function(String name)? addFavoritePokemon,
+    TResult Function(String name)? removeFavoritePokemon,
+    required TResult orElse(),
+  }) {
+    if (removeFavoritePokemon != null) {
+      return removeFavoritePokemon(name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAllPokemon value) getAllPokemon,
+    required TResult Function(GetSelectedPokemon value) getSelectedPokemon,
+    required TResult Function(ClearFilter value) clearFilter,
+    required TResult Function(FilterFavoritePokemons value)
+    filterFavoritePokemons,
+    required TResult Function(FetchFavoritePokemons value)
+    fetchFavoritePokemons,
+    required TResult Function(AddFavoritePokemon value) addFavoritePokemon,
+    required TResult Function(RemoveFavoritePokemon value)
+    removeFavoritePokemon,
+  }) {
+    return removeFavoritePokemon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetAllPokemon value)? getAllPokemon,
+    TResult? Function(GetSelectedPokemon value)? getSelectedPokemon,
+    TResult? Function(ClearFilter value)? clearFilter,
+    TResult? Function(FilterFavoritePokemons value)? filterFavoritePokemons,
+    TResult? Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult? Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult? Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
+  }) {
+    return removeFavoritePokemon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAllPokemon value)? getAllPokemon,
+    TResult Function(GetSelectedPokemon value)? getSelectedPokemon,
+    TResult Function(ClearFilter value)? clearFilter,
+    TResult Function(FilterFavoritePokemons value)? filterFavoritePokemons,
+    TResult Function(FetchFavoritePokemons value)? fetchFavoritePokemons,
+    TResult Function(AddFavoritePokemon value)? addFavoritePokemon,
+    TResult Function(RemoveFavoritePokemon value)? removeFavoritePokemon,
+    required TResult orElse(),
+  }) {
+    if (removeFavoritePokemon != null) {
+      return removeFavoritePokemon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveFavoritePokemon implements PokemonEvent {
+  const factory RemoveFavoritePokemon({required final String name}) =
+      _$RemoveFavoritePokemonImpl;
+
+  String get name;
+
+  /// Create a copy of PokemonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RemoveFavoritePokemonImplCopyWith<_$RemoveFavoritePokemonImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -809,6 +1215,7 @@ mixin _$PokemonState {
   List<PokemonListItemModel>? get pokemonList =>
       throw _privateConstructorUsedError;
   PokemonDetailModel? get selectedPokemon => throw _privateConstructorUsedError;
+  List<String>? get favoritePokemons => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   /// Create a copy of PokemonState
@@ -829,6 +1236,7 @@ abstract class $PokemonStateCopyWith<$Res> {
     CoreFailure? failure,
     List<PokemonListItemModel>? pokemonList,
     PokemonDetailModel? selectedPokemon,
+    List<String>? favoritePokemons,
     bool isLoading,
   });
 }
@@ -851,6 +1259,7 @@ class _$PokemonStateCopyWithImpl<$Res, $Val extends PokemonState>
     Object? failure = freezed,
     Object? pokemonList = freezed,
     Object? selectedPokemon = freezed,
+    Object? favoritePokemons = freezed,
     Object? isLoading = null,
   }) {
     return _then(
@@ -870,6 +1279,11 @@ class _$PokemonStateCopyWithImpl<$Res, $Val extends PokemonState>
                     ? _value.selectedPokemon
                     : selectedPokemon // ignore: cast_nullable_to_non_nullable
                         as PokemonDetailModel?,
+            favoritePokemons:
+                freezed == favoritePokemons
+                    ? _value.favoritePokemons
+                    : favoritePokemons // ignore: cast_nullable_to_non_nullable
+                        as List<String>?,
             isLoading:
                 null == isLoading
                     ? _value.isLoading
@@ -894,6 +1308,7 @@ abstract class _$$PokemonStateImplCopyWith<$Res>
     CoreFailure? failure,
     List<PokemonListItemModel>? pokemonList,
     PokemonDetailModel? selectedPokemon,
+    List<String>? favoritePokemons,
     bool isLoading,
   });
 }
@@ -915,6 +1330,7 @@ class __$$PokemonStateImplCopyWithImpl<$Res>
     Object? failure = freezed,
     Object? pokemonList = freezed,
     Object? selectedPokemon = freezed,
+    Object? favoritePokemons = freezed,
     Object? isLoading = null,
   }) {
     return _then(
@@ -934,6 +1350,11 @@ class __$$PokemonStateImplCopyWithImpl<$Res>
                 ? _value.selectedPokemon
                 : selectedPokemon // ignore: cast_nullable_to_non_nullable
                     as PokemonDetailModel?,
+        favoritePokemons:
+            freezed == favoritePokemons
+                ? _value._favoritePokemons
+                : favoritePokemons // ignore: cast_nullable_to_non_nullable
+                    as List<String>?,
         isLoading:
             null == isLoading
                 ? _value.isLoading
@@ -951,8 +1372,10 @@ class _$PokemonStateImpl implements _PokemonState {
     required this.failure,
     required final List<PokemonListItemModel>? pokemonList,
     required this.selectedPokemon,
+    required final List<String>? favoritePokemons,
     this.isLoading = false,
-  }) : _pokemonList = pokemonList;
+  }) : _pokemonList = pokemonList,
+       _favoritePokemons = favoritePokemons;
 
   @override
   final CoreFailure? failure;
@@ -968,13 +1391,24 @@ class _$PokemonStateImpl implements _PokemonState {
 
   @override
   final PokemonDetailModel? selectedPokemon;
+  final List<String>? _favoritePokemons;
+  @override
+  List<String>? get favoritePokemons {
+    final value = _favoritePokemons;
+    if (value == null) return null;
+    if (_favoritePokemons is EqualUnmodifiableListView)
+      return _favoritePokemons;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final bool isLoading;
 
   @override
   String toString() {
-    return 'PokemonState(failure: $failure, pokemonList: $pokemonList, selectedPokemon: $selectedPokemon, isLoading: $isLoading)';
+    return 'PokemonState(failure: $failure, pokemonList: $pokemonList, selectedPokemon: $selectedPokemon, favoritePokemons: $favoritePokemons, isLoading: $isLoading)';
   }
 
   @override
@@ -989,6 +1423,10 @@ class _$PokemonStateImpl implements _PokemonState {
             ) &&
             (identical(other.selectedPokemon, selectedPokemon) ||
                 other.selectedPokemon == selectedPokemon) &&
+            const DeepCollectionEquality().equals(
+              other._favoritePokemons,
+              _favoritePokemons,
+            ) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
@@ -999,6 +1437,7 @@ class _$PokemonStateImpl implements _PokemonState {
     failure,
     const DeepCollectionEquality().hash(_pokemonList),
     selectedPokemon,
+    const DeepCollectionEquality().hash(_favoritePokemons),
     isLoading,
   );
 
@@ -1016,6 +1455,7 @@ abstract class _PokemonState implements PokemonState {
     required final CoreFailure? failure,
     required final List<PokemonListItemModel>? pokemonList,
     required final PokemonDetailModel? selectedPokemon,
+    required final List<String>? favoritePokemons,
     final bool isLoading,
   }) = _$PokemonStateImpl;
 
@@ -1025,6 +1465,8 @@ abstract class _PokemonState implements PokemonState {
   List<PokemonListItemModel>? get pokemonList;
   @override
   PokemonDetailModel? get selectedPokemon;
+  @override
+  List<String>? get favoritePokemons;
   @override
   bool get isLoading;
 

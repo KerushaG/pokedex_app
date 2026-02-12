@@ -25,11 +25,12 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => coreSl<AuthBloc>()),
         BlocProvider(create: (_) => coreSl<PokemonBloc>()),
-        // BlocProvider(create: (_) => coreSl<ActionStepsBloc>()),
       ],
       child: MaterialApp(
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 242, 109, 32),
+          ),
         ),
         debugShowCheckedModeBanner: false,
         home: const AppAuthManager(),
