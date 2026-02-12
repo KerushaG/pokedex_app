@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex_app/src/view/home/details/view_pokemon_detail.dart';
+import 'package:pokedex_app/src/view_model/bloc/pokemons/pokemon_bloc.dart';
 
 class PokemonCard extends StatelessWidget {
   const PokemonCard({
@@ -54,14 +56,13 @@ class PokemonCard extends StatelessWidget {
                     color: Colors.amberAccent,
                   ),
           onTap: () {
+            context.read<PokemonBloc>().add(
+              PokemonEvent.getSelectedPokemon(pokemonUrl),
+            );
             Navigator.push(
               context,
               MaterialPageRoute<void>(
-                builder:
-                    (context) => ViewPokemonDetail(
-                      name: pokemonName,
-                      selectedPokemonUrl: pokemonUrl,
-                    ),
+                builder: (context) => ViewPokemonDetail(name: pokemonName),
               ),
             );
           },

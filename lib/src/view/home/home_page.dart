@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex_app/src/model/clients/pokemon_api_client.dart';
 import 'package:pokedex_app/src/view/home/filters/filter_buttons.dart';
 import 'package:pokedex_app/src/view/home/filters/search_bar.dart';
 import 'package:pokedex_app/src/view/home/widgets/logout_button.dart';
 import 'package:pokedex_app/src/view/home/widgets/page_header.dart';
 import 'package:pokedex_app/src/view/home/widgets/pokemon_card.dart';
 import 'package:pokedex_app/src/view_model/bloc/authentication/auth_bloc.dart';
+import 'package:pokedex_app/src/view_model/bloc/pokemons/pokemon_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,16 +16,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final api = PokemonService();
-  late Future<List<HomePokemonListItem>> _pokemonList;
   String? imageUrl;
   String? selectedFilter;
 
   @override
   void initState() {
     super.initState();
-
-    _pokemonList = api.fetchPokemons();
+    context.read<PokemonBloc>().add(const PokemonEvent.getAllPokemon());
   }
 
   @override
@@ -44,23 +41,22 @@ class _HomePageState extends State<HomePage> {
             FilterButtons(),
             const SizedBox(height: 9),
             Expanded(
-              child: FutureBuilder<List<HomePokemonListItem>>(
-                future: _pokemonList,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+              child: BlocBuilder<PokemonBloc, PokemonState>(
+                builder: (context, state) {
+                  if (state.isLoading) {
+                    return Center(child: CircularProgressIndicator());
                   }
-
-                  if (snapshot.hasError) {
-                    return Center(child: Text(snapshot.error.toString()));
+                  if (state.failure != null) {
+                    return Center(child: Text(state.failure.toString()));
                   }
-
-                  final pokemons = snapshot.data!;
+                  if (state.pokemonList == null) {
+                    return const SizedBox.shrink();
+                  }
 
                   return ListView.builder(
-                    itemCount: pokemons.length,
+                    itemCount: state.pokemonList!.length,
                     itemBuilder: (context, index) {
-                      final result = pokemons[index];
+                      final result = state.pokemonList![index];
                       return PokemonCard(
                         pokemonName: result.name,
                         pokemonUrl: result.pokemonUrl,

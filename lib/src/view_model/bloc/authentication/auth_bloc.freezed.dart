@@ -1004,8 +1004,6 @@ mixin _$AuthState {
   CoreFailure? get failure => throw _privateConstructorUsedError;
   UserModel? get user => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-
-  /// Set only when login or signUp succeeds; used by the app gate, not form data.
   UserModel? get authenticatedUser => throw _privateConstructorUsedError;
 
   /// Create a copy of AuthState
@@ -1156,8 +1154,6 @@ class _$AuthStateImpl implements _AuthState {
   @override
   @JsonKey()
   final bool isLoading;
-
-  /// Set only when login or signUp succeeds; used by the app gate, not form data.
   @override
   final UserModel? authenticatedUser;
 
@@ -1206,8 +1202,6 @@ abstract class _AuthState implements AuthState {
   UserModel? get user;
   @override
   bool get isLoading;
-
-  /// Set only when login or signUp succeeds; used by the app gate, not form data.
   @override
   UserModel? get authenticatedUser;
 

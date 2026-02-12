@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linear_progress_bar/linear_progress_bar.dart';
-import 'package:pokedex_app/src/model/clients/pokemon_api_client.dart';
+import 'package:pokedex_app/src/view_model/models/pokemon_detail_model.dart';
 
 class BaseStats extends StatelessWidget {
   const BaseStats({super.key, required this.pokemonStats});

@@ -6,7 +6,6 @@ class AuthState with _$AuthState {
     required CoreFailure? failure,
     UserModel? user,
     @Default(false) bool isLoading,
-    /// Set only when login or signUp succeeds; used by the app gate, not form data.
     UserModel? authenticatedUser,
   }) = _AuthState;
 

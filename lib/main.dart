@@ -6,6 +6,7 @@ import 'package:pokedex_app/src/view/home/home_page.dart';
 import 'package:pokedex_app/src/view/login/login_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex_app/src/view_model/bloc/authentication/auth_bloc.dart';
+import 'package:pokedex_app/src/view_model/bloc/pokemons/pokemon_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => coreSl<AuthBloc>()),
-        // BlocProvider(create: (_) => coreSl<GoalsBloc>()),
+        BlocProvider(create: (_) => coreSl<PokemonBloc>()),
         // BlocProvider(create: (_) => coreSl<ActionStepsBloc>()),
       ],
       child: MaterialApp(
