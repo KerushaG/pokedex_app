@@ -33,7 +33,7 @@ class InputField extends StatelessWidget {
         suffixIconColor: Color(0xFF4A5567),
         filled: true,
         fillColor: Colors.white,
-        hintText: 'Enter your email',
+        hintText: userPrompt,
         hintStyle: TextStyle(color: Color(0xFF4A5567)),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
