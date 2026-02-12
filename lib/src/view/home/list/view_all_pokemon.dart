@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/src/model/responses/all_pokemon_response.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex_app/src/model/clients/pokemon_api_client.dart';
+import 'package:pokedex_app/src/model/responses/all_pokemon_response.dart';
 import 'package:pokedex_app/src/view/home/details/view_pokemon_detail.dart';
+import 'package:pokedex_app/src/view_model/bloc/authentication/auth_bloc.dart';
 
 enum PokemonFilters {
   all('All Pokéman'),
@@ -34,6 +36,8 @@ class _PokemonListPageState extends State<PokemonListPage> {
 
   @override
   Widget build(BuildContext context) {
+    final username =
+        context.read<AuthBloc>().state.authenticatedUser?.name ?? 'Unknown';
     return Scaffold(
       backgroundColor: const Color(0xFFF8F6F6),
       appBar: AppBar(
@@ -46,7 +50,7 @@ class _PokemonListPageState extends State<PokemonListPage> {
               'Pokédex',
               style: TextStyle(fontWeight: FontWeight.w900, fontSize: 32),
             ),
-            const Text('Welcome Kerusha', style: TextStyle(fontSize: 16)),
+            Text('Welcome $username', style: TextStyle(fontSize: 16)),
           ],
         ),
         backgroundColor: const Color(0xFFF8F6F6),
@@ -155,6 +159,28 @@ class _PokemonListPageState extends State<PokemonListPage> {
                     },
                   );
                 },
+              ),
+            ),
+            SafeArea(
+              top: false,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 12.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      context.read<AuthBloc>().add(const AuthEvent.logout());
+                    },
+                    icon: const Icon(Icons.logout, size: 20),
+                    label: const Text('Log out'),
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF4A5567),
+                      side: const BorderSide(color: Color(0xFF4A5567)),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
